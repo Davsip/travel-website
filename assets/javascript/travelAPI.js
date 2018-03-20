@@ -13,13 +13,14 @@ $(document).ready( function () {
     // If user inputs own destination, grab value and send to modal
     $("#user-trip").on("click", function() {
 
-        $("#user-destination").text( $(".destination-name").val().trim() );
+        console.log($("#destination-name").val());
+        $("#user-destination").text( $("#destination-name").val() );
 
     });
     // If user chooses predefined destination, grab value and send to modal
-    $("#predefined-trip").on("click", function() {
+    $(".predefined-trip").on("click", function() {
 
-        $("#user-destination").text( $(".destination-name").val() );
+        $("#user-destination").text( $(this).val() );
 
     });
 
@@ -55,14 +56,17 @@ $(document).ready( function () {
 
         myTrip.push( myActivities );
 
+        // pass myTrip to Firebase
+
     });
 
-    // AJAX
+    // on child_added to user profile in Firebase
+    // Initiate AJAX
     // Send destination, date range, and selected activities to
     // API's
     // Retreive and locate needed information from API call
     // Dynamically update HMTL with user's trip information
-    
+
 
 
 
