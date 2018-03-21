@@ -1,20 +1,86 @@
 body {
-    background: url("http://www.saiindiatravel.com/wp-content/uploads/2015/08/background.jpg");
+
+   background-image: url(../images/travel-the-world-tumblr-quotes-background-wallpaper-full-hd-wallpapers-image-source-from-this-santorini-1.jpg);
+   margin: 0;
+   max-width: 100%;
+   height: auto;
 }
 
-.overlay{
-    position: absolute;
-    bottom: 0;
-    background: rgba (0,0,0,0.5);
-    color: white;
+.navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
     width: 100%;
-    transition: .5s ease;
-    opacity: 0;
-    font-size: 20px;
-    padding: 20px;
+    color: #E84855 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    background-size: cover;
     text-align: center;
+    font-size: 50px;
+    background-position: bottom;
+    padding: 0;
+    margin: 0;
+    background-color:#0496FF;
+    background: linear-gradient(rgba(114, 111, 111, 0.5), rgba(169, 165, 165, 0.5));; 
+
+  }
+
+  .main {
+    padding: 16px;
+    margin-top: 5px;
+    height: 700px; /*  to enable scrolling */
+    margin-bottom: 40px;
+    padding-right: 10%;
+    padding-left: 10%;
+
+  }
+
+
+
+
+.margin-1 {
+    margin: 0;
 }
-.col-md-3:hover .overlay {
-    opacity: 1;
+
+* {
+    box-sizing: border-box;
 }
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 50%;
+    background: #f1f1f1;
+    margin-top: 30%;
+    border-radius: 10px;
+    margin-left:5%;
+}
+
+.explore {
+
+    border-radius: 10px;
+    background-color: #E84855;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 120px;
+    height: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px;
+    margin-top: 15px;
+    margin-left: -1%;
+    background: linear-gradient(rgba(10, 88, 223, 0.5), rgba(11, 62, 230, 0.5));;  
+}
+
+
+
+
+
+
+
 
