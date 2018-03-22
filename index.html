@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<link rel="stylesheet" href= "./assets/css/style.css">
+
+<title>Search my trip🔎</title>
+   </head>
+<body>
+<div class="navbar">
+    <a href="#home"> <img src="./assets/images/logo.png" id="logo-img"  alt="logo"></a>  
+</div>
+              <!--------main div------------>
+<div class="main">
+            <!-- Search input  -->
+    <div class= "container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <form>
+                    <input type="text" id="autocomplete" id="destination-name" placeholder="Search your destination...🔎" name="search" />
+                    <br>
+                    <button type="button" id="user-trip" class="btn btn-primary explore" data-toggle="modal" data-target="#exampleModalCenter" > Explore
+                    </button>
+                    
+                </form>
+            </div>
+        </div>
+                <!-- Modal -->
+<div class="col-lg-9 col-md-6 col-sm-6 col-xs-6 col-lg-push-5 col-md-push-1 col-sm-push-1">
+<!-- Explore -->
+   
+                <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                         <h3 class="modal-title" id="user-destination">Your Trip Options</h3>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                    </button>
+                                        </div>
+                                        <!-- calendar option  -->
+                                     <div class="modal-body">
+                                <form>
+                               From:
+                           <input type="date" id="start-date" name="from">
+                       <form >
+                     to:
+                <input type="date" id="end-date" name="to">
+         </form> 
+  </div>
+                <!-- calendar option  -->
+<div class="modal-footer">
+     <div class=" container">
+         <div class= "col-sm-4">
+             <form>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="activity-name" value="">Outdoors
+                        </label>  
+                           <label class="checkbox-inline">
+                             <input type="checkbox" id="activity-name" value="">Shopping
+                                </label>
+                                  <label class="checkbox-inline">
+                                     <input type="checkbox" id="activity-name"  value="">Attractions
+                                        </label>
+                                            </form>
+                                               </div>
+                                             </div>
+                                        <br>
+                                        <!-- activities box  -->
+                                    <div class=" container">
+                               <div class= "col-sm-4">
+                          <form>
+                     <label class="checkbox-inline">
+                 <input type="checkbox" id="activity-name"  value="">Music
+             </label>  
+        <label class="checkbox-inline">
+    <input type="checkbox" id="activity-name"value="">Accommodations
+</label>
+    <label class="checkbox-inline">
+         <input type="checkbox"   id="activity-name"  value="">Attractions
+                </label>
+                     </form>
+                            </div>
+                                  </div>
+                                    </div>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- mai div class -->
+</div>      
+                      
+    <!-- predifined destinations -->
+
+    <!-- <div class= "container">
+    <div class= "col-sm-4">
+    <h3>Argentina What do we recommend</h3>
+    <ol>
+            <li>Food</li>
+            <p>Asado</p>
+            <li>Wine</li>
+            <p> Malbec</p>
+            <li>Outdoors</li>
+            <p>Perito Moreno Glacier! in Patagonia has earned it 
+                the nickname of the "Eighth Wonder of the World” in Argentina. 
+                It’s the planet's third-largest reserve of fresh water and one 
+                of the continent's last advancing glaciers, slowly making its 
+                way in crackling celestial blue from the granite spires of the
+                Chilean Torres del Paine into Argentina's Los Glaciares National
+                Park (Parque Nacional Los Glaciares). </p>
+             </ol> 
+     </div>
+    </div> -->
+
+    
+
+<!-----java script -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+
+<script src="assets/javascript/travelAPI.js"></script>
+<!-- let's put this in javascritp file  -->
+<script>
+ var input = document.getElementById('autocomplete');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+</script> 
+<!-- let's put this in javascritp file  -->
+
+
+</body>
+
+</html>
