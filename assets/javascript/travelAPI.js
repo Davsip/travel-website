@@ -57,8 +57,34 @@ $(document).ready( function () {
         myTrip.push( myActivities );
 
         // pass myTrip to Firebase
+        searchAPI ( myTrip );
 
     });
+
+    function searchAPI( trip ){
+        
+        //Start Sygic Travel API Search
+        var apiKey = "VUoBrIiIld3xOuvna78BQ2JWCOS3Ndu32EcjtGzp";
+        var url = "https://api.sygictravelapi.com/1.0/en/places/list?query=" + "dallas";    
+
+        $(document).ready(function(){
+          $.ajax({
+              headers: {
+                  'x-api-key': apiKey
+              },
+              url: url
+            })  
+            .done(function(data) {
+
+                console.log(url);
+                var places = data.data.places;
+                console.log(places);
+
+            });    
+        });
+
+    };
+ 
 
     // on child_added to user profile in Firebase
     // Initiate AJAX
