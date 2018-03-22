@@ -13,7 +13,7 @@ $(document).ready( function () {
     // If user inputs own destination, grab value and send to modal
     $("#user-trip").on("click", function() {
 
-        console.log($("#destination-name").val());
+        //console.log($("#destination-name").val());
         $("#user-destination").text( $("#destination-name").val() );
 
     });
@@ -40,8 +40,8 @@ $(document).ready( function () {
 
         var myTrip = {
             destination: $("#user-destination").val(),
-            startDate = $("#start-date").val(),
-            endDate = $("#end-date").val(),
+            startDate: $("#start-date").val(),
+            endDate: $("#end-date").val(),
 
         }
 
@@ -68,6 +68,14 @@ $(document).ready( function () {
     // Dynamically update HMTL with user's trip information
 
 
-
-
 });
+
+// #user-trip, id for the explore button after search destination input field
+// #user-destination, id for modal header where html with destination will go
+// #destination-name, id for the destination input field before pressing explore button
+// .predefined-trip, class for all of the predefined trip locations
+// $(this).val(), currently using this to capture predefined trip location, can change to .attr("value") if you set value="city"
+// #submit-trip, id for save changes button in modal
+// #start-date, id for start date in modal
+// #end-date, id for end date in modal
+// #activity-name, id for each activity, i.e. activity-nightlife, activity-shopping, etc
