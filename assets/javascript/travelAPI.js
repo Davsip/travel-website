@@ -7,13 +7,13 @@ $(document).ready( function () {
     // Retreive and locate needed information from API call
     // Dynamically update HTML with user's trip information
 
-    var possActivities = ["t1","t2","t3","t4"];
+    var possActivities = ["outdoors","shopping","attractions","music","accommodations","sports"];
 
     // On click event listeners for destination choice    
     // If user inputs own destination, grab value and send to modal
     $("#user-trip").on("click", function() {
 
-        //console.log($("#destination-name").val());
+        console.log($("#destination-name").val());
         $("#user-destination").text( $("#destination-name").val() );
 
     });
@@ -36,29 +36,58 @@ $(document).ready( function () {
     // Get all selected activities
     $("#submit-trip").on("click", function() {
 
-        var myActivities = [];
+        console.log($("#user-destination").text());
 
         var myTrip = {
-            destination: $("#user-destination").val(),
+            destination: $("#user-destination").text(),
             startDate: $("#start-date").val(),
             endDate: $("#end-date").val(),
+            myActivities: []
 
         }
 
         // figure out how to get activities from select boxes
         // store selected activities in string array
         // push array to myTrip
-        for (var i = 0; i < possActivities.length(); i++) {
-            if ( $("#activity-" + possActivities[i]).checked ) {
-                myActivities.push( possActivities[i] );
+        console.log(possActivities.length);
+        for (var i = 0; i < possActivities.length; i++) {
+            console.log("check: activity-" + possActivities[i]);
+            if ( $("#activity-" + possActivities[i])[0].checked ) {
+                console.log( true );
+                myTrip.myActivities.push( possActivities[i] );
             }
         }
 
-        myTrip.push( myActivities );
-
-        // pass myTrip to Firebase
+        // pass myTrip to searchAPI, then to Firebase
+        console.log( myTrip );
+        searchAPI ( myTrip );
 
     });
+
+    function searchAPI( trip ){
+        
+        //Start Sygic Travel API Search
+        var apiKey = "VUoBrIiIld3xOuvna78BQ2JWCOS3Ndu32EcjtGzp";
+        var url = "https://api.sygictravelapi.com/1.0/en/places/list?query=" + "dallas";    
+
+        $(document).ready(function(){
+          $.ajax({
+              headers: {
+                  'x-api-key': apiKey
+              },
+              url: url
+            })  
+            .done(function(data) {
+
+                console.log(url);
+                var places = data.data.places;
+                console.log(places);
+
+            });    
+        });
+
+    };
+ 
 
     // on child_added to user profile in Firebase
     // Initiate AJAX
