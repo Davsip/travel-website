@@ -13,7 +13,7 @@ $(document).ready( function () {
     // If user inputs own destination, grab value and send to modal
     $("#user-trip").on("click", function() {
 
-        //console.log($("#destination-name").val());
+        console.log($("#destination-name").val());
         $("#user-destination").text( $("#destination-name").val() );
 
     });
