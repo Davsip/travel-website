@@ -7,7 +7,7 @@ $(document).ready( function () {
     // Retreive and locate needed information from API call
     // Dynamically update HTML with user's trip information
 
-    var possActivities = ["outdoors","shopping","attractions","music","accommodations","sports"];
+    var possActivities = ["discovering","eating","going_out","relaxing","shopping","sightseeing"];
 
     // On click event listeners for destination choice    
     // If user inputs own destination, grab value and send to modal
@@ -65,26 +65,71 @@ $(document).ready( function () {
     });
 
     function searchAPI( trip ){
+
+        var city = trip.destination.substring(0, trip.destination.indexOf(","));
+        var cityID = "";
+
+        //console.log(city);
         
         //Start Sygic Travel API Search
         var apiKey = "VUoBrIiIld3xOuvna78BQ2JWCOS3Ndu32EcjtGzp";
-        var url = "https://api.sygictravelapi.com/1.0/en/places/list?query=" + "dallas";    
+        var url = "https://api.sygictravelapi.com/1.0/en/places/list?query=" + city;    
 
-        $(document).ready(function(){
-          $.ajax({
-              headers: {
-                  'x-api-key': apiKey
-              },
-              url: url
-            })  
-            .done(function(data) {
-
-                console.log(url);
-                var places = data.data.places;
-                console.log(places);
-
-            });    
+        
+        $.ajax({
+          headers: {
+              'x-api-key': apiKey
+          },
+          url: url
+        })  
+        .done(function(data) {
+            //console.log(url);
+            var places = data.data.places;
+            console.log(places);
+            cityID = places[0].id;
+            console.log(cityID);
         });
+        
+        url = "https://api.sygictravelapi.com/1.0/en/places/list?parents:" + cityID + "&categories=";
+        var categories = "";
+
+        if (trip.myActivities.length > 1) {
+
+            console.log("--- More than 1 activity chosen ---");
+
+            for (var j = 0; j < trip.myActivities.length-1; j++) {
+                categories = categories + trip.myActivities[j] + ",";
+                console.log(categories);
+            }
+
+            categories = categories + trip.myActivities[ trip.myActivities.length - 1];
+            console.log(categories);
+
+        } else {
+            console.log("--- Only 1 activity chosen ---");
+            categories = trip.myActivities[0];
+            console.log(categories);
+        }
+
+        url = url + categories;
+        console.log(url); 
+
+        
+        $.ajax({
+          headers: {
+              'x-api-key': apiKey
+          },
+          url: url
+        })  
+        .done(function(data) {
+            //console.log(url);
+            var places = data.data.places;
+            console.log(places);
+            cityID = places[0].id;
+            console.log(cityID);
+        });    
+
+
 
     };
  
