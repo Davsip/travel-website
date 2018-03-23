@@ -63,13 +63,13 @@
                                     <div class="col-sm-4">
                                         <form>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="activity-outdoors" value="outdoors">Outdoors
+                                                <input type="checkbox" id="activity-discovering" value="discovering">Discovering
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="activity-shopping" value="shopping">Shopping
+                                                <input type="checkbox" id="activity-eating" value="eating">Eating
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="activity-attractions" value="attractions">Attractions
+                                                <input type="checkbox" id="activity-going_out" value="going_out">Going Out
                                             </label>
                                         </form>
                                     </div>
@@ -80,13 +80,13 @@
                                     <div class="col-sm-4">
                                         <form>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="activity-music" value="music">Music
+                                                <input type="checkbox" id="activity-relaxing" value="relaxing">Relaxing
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="activity-accommodations" value="accommodations">Accommodations
+                                                <input type="checkbox" id="activity-shopping" value="shopping">Shopping
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="activity-sports" value="sports">Sports
+                                                <input type="checkbox" id="activity-sightseeing" value="sightseeing">Sightseeing
                                             </label>
                                         </form>
                                     </div>
@@ -136,8 +136,11 @@
     <!-- let's put this in javascritp file  -->
     <script>
         var input = document.getElementById('destination-name');
-        var autocomplete = new google.maps.places.Autocomplete(input);
-    </script>
+        var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+        google.maps.event.addListener(autocomplete, 'place_changed', function(){
+           var place = autocomplete.getPlace();
+        })
+      </script>
     <!-- let's put this in javascritp file  -->
 
 
