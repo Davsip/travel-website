@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+
+
+    // Aaron code start at 450
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyALW0-UOjpyY6rH54nDllLk5E22R2LAkYI",
+        authDomain: "travel-website-c3bdf.firebaseapp.com",
+        databaseURL: "https://travel-website-c3bdf.firebaseio.com",
+        projectId: "travel-website-c3bdf",
+        storageBucket: "",
+        messagingSenderId: "560299774902"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
     $("#page-2").hide();
 
     // Initial File: JavaScript, jQuery, AJAX, API's, and Firebase
@@ -22,7 +38,7 @@ $(document).ready(function () {
     // If user chooses predefined destination, grab value and send to modal
     $(".predefined-trip").on("click", function () {
 
-        $("#user-destination").text($(this).attr("value"));
+        $("#user-destination").text($(this).text());
 
     });
 
@@ -39,7 +55,7 @@ $(document).ready(function () {
     $("#submit-trip").on("click", function () {
 
         $(".page-1").hide();
-        
+
 
         console.log($("#user-destination").text());
 
@@ -118,11 +134,11 @@ $(document).ready(function () {
                 url = url + categories + "&limit=5";
                 console.log(url);
 
-                activitySearch();
+                activitySearch(trip);
             });
 
 
-        function activitySearch() {
+        function activitySearch(trip) {
 
             $.ajax({
                 headers: {
@@ -136,6 +152,7 @@ $(document).ready(function () {
                     console.log(places);
 
                     displayActivity(places);
+                    pushFirebase(trip, places);
                 });
 
         };
@@ -156,7 +173,7 @@ $(document).ready(function () {
     // </div>
 
     function displayActivity(places) {
-
+    //function displayActivity() {
         $("#page-2").show();
 
         console.log("--- displayActivity Called ---")
@@ -164,6 +181,12 @@ $(document).ready(function () {
         // if places.length > 5
         // have card-deck for first 5 activities
         // have card-deck for last 5 activities (start l @ index 5)
+
+        // console.log("--- Start Reference from Firebase ---");
+        // var numActivities = snapshot.val().places.length;
+        // console.log(numActivities);
+        // console.log("--- End Reference from Firebase ---");
+
 
         for (var k = 0; k < places.length; k++) {
 
@@ -181,10 +204,11 @@ $(document).ready(function () {
             cardBody.attr("class", "card-body");
 
             var activityTitle = $("<h5>");
-            activityTitle.attr("class", "activity-title");
+            activityTitle.attr("class", "card-title");
             activityTitle.text(places[k].name);
 
             var activityAbout = $("<p>");
+            activityAbout.attr("class","card-text");
             activityAbout.text(places[k].perex);
 
             cardBody.append(activityTitle);
@@ -451,81 +475,95 @@ $(document).ready(function () {
 
 
 
-    // Aaron code start at 450
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyALW0-UOjpyY6rH54nDllLk5E22R2LAkYI",
-        authDomain: "travel-website-c3bdf.firebaseapp.com",
-        databaseURL: "https://travel-website-c3bdf.firebaseio.com",
-        projectId: "travel-website-c3bdf",
-        storageBucket: "",
-        messagingSenderId: "560299774902"
+    database.ref("/user-trip").on("child_added", function (snapshot) {
+        console.log(snapshot.val());
+
+    }, function (errorObject) {
+
+        // In case of error this will print the error
+        console.log("The read failed: " + errorObject.code);
+    });
+
+    function pushFirebase(myTrip, places) {
+
+        console.log(myTrip);
+        console.log(places);
+
+        var myTrip2 = {
+            myTrip,
+            places
+        }
+
+        $("#user-destination").val("");
+        $("#start-date").val("");
+        $("#end-date").val("");
+
+        database.ref("/user-trip").push(myTrip2);
     };
-    firebase.initializeApp(config);
 
     //////////////////////////////////////
     // on submit trip, run these functions
     // toggleSignIn()
     // initApp() - throw all app code in this function
     //////////////////////////////////////
-    function toggleSignIn() {
-        if (firebase.auth().currentUser) {
-            // [START signout]
-            firebase.auth().signOut();
-            // [END signout]
-        } else {
-            // [START authanon]
-            firebase.auth().signInAnonymously().catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // [START_EXCLUDE]
-                if (errorCode === 'auth/operation-not-allowed') {
-                    alert('You must enable Anonymous auth in the Firebase Console.');
-                } else {
-                    console.error(error);
-                }
-                // [END_EXCLUDE]
-            });
-            // [END authanon]
-        }
-        document.getElementById('submit-trip').disabled = true;
-    }
-    /**
-   * initApp handles setting up UI event listeners and registering Firebase auth listeners:
-   *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
-   *    out, and that is where we update the UI.
-   */
-    function initApp() {
-        // Listening for auth state changes.
-        // [START authstatelistener]
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                // User is signed in.
-                var isAnonymous = user.isAnonymous;
-                var uid = user.uid;
-                // [START_EXCLUDE]
-                // document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
-                // document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-                // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-                // [END_EXCLUDE]
-            } else {
-                // User is signed out.
-                // [START_EXCLUDE]
-                // document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
-                // document.getElementById('quickstart-sign-in').textContent = 'Sign in';
-                // document.getElementById('quickstart-account-details').textContent = 'null';
-                // [END_EXCLUDE]
-            }
-            // [START_EXCLUDE]
-            document.getElementById('submit-trip').disabled = false;
-            // [END_EXCLUDE]
-        });
-        // [END authstatelistener]
-        document.getElementById('submit-trip').addEventListener('click', toggleSignIn, false);
-    }
+    //     function toggleSignIn() {
+    //         if (firebase.auth().currentUser) {
+    //             // [START signout]
+    //             firebase.auth().signOut();
+    //             // [END signout]
+    //         } else {
+    //             // [START authanon]
+    //             firebase.auth().signInAnonymously().catch(function (error) {
+    //                 // Handle Errors here.
+    //                 var errorCode = error.code;
+    //                 var errorMessage = error.message;
+    //                 // [START_EXCLUDE]
+    //                 if (errorCode === 'auth/operation-not-allowed') {
+    //                     alert('You must enable Anonymous auth in the Firebase Console.');
+    //                 } else {
+    //                     console.error(error);
+    //                 }
+    //                 // [END_EXCLUDE]
+    //             });
+    //             // [END authanon]
+    //         }
+    //         document.getElementById('submit-trip').disabled = true;
+    //     }
+    //     /**
+    //    * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+    //    *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+    //    *    out, and that is where we update the UI.
+    //    */
+    //     function initApp() {
+    //         // Listening for auth state changes.
+    //         // [START authstatelistener]
+    //         firebase.auth().onAuthStateChanged(function (user) {
+    //             if (user) {
+    //                 // User is signed in.
+    //                 var isAnonymous = user.isAnonymous;
+    //                 var uid = user.uid;
+    //                 // [START_EXCLUDE]
+    //                 // document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+    //                 // document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+    //                 // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
+    //                 // [END_EXCLUDE]
+    //             } else {
+    //                 // User is signed out.
+    //                 // [START_EXCLUDE]
+    //                 // document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+    //                 // document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+    //                 // document.getElementById('quickstart-account-details').textContent = 'null';
+    //                 // [END_EXCLUDE]
+    //             }
+    //             // [START_EXCLUDE]
+    //             document.getElementById('submit-trip').disabled = false;
+    //             // [END_EXCLUDE]
+    //         });
+    //         // [END authstatelistener]
+    //         document.getElementById('submit-trip').addEventListener('click', toggleSignIn, false);
+    //     }
 
-    //initApp();
+    //     //initApp();
 
 });
 

@@ -1,28 +1,146 @@
 body {
-   background-image: url(../images/background-city.jpg);
-   /* background: #E0DFD5; */
-   margin: 0;
-   /* max-width: 90%; */
-   height: auto;
-   position: relative;   
-   background-repeat: no-repeat;
-   background-position: center center;
-   background-attachment: fixed;
-   background-size: cover;
-padding-left:0; 
-padding-right: 0;
-      
- 
-   
+    background-image: url(../images/background-city.jpg);
+    /* background: #E0DFD5; */
+    margin: 0;
+    /* max-width: 90%; */
+    height: auto;
+    position: relative;   
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-left:0; 
+     padding-right: 0;
 }
 
-.navbar {
-    /* overflow: hidden; */
-    /* position: fixed; */
-    /* top: 0; */
-    width: 100%;
-    height: auto;
-    background-size: cover;
+ .navbar {
+     /* overflow: hidden; */
+     /* position: fixed; */
+     /* top: 0; */
+     width: 100%;
+     height: auto;
+     background-size: cover;
+     text-align: center;
+     font-size: 50px;
+     background-position: bottom;
+     padding: 5px;
+     margin: 0;
+     /* background-color:#0496FF; */
+     background: linear-gradient(rgba(250, 180, 1, 0.5), rgba(169, 165, 165, 0.5));; 
+   }
+   .navbar > a {
+       height: auto;
+   } 
+   #logo-img {
+       width: 40%;
+   }
+ /* code outside of hte @media query affects the entire page no matter what size */
+   .main {
+     padding: 16px;
+     margin-top: 5px;
+     /* height: 700px;  to enable scrolling */
+     margin-bottom: 50px;
+     /* padding-right: 10%;
+     padding-left: 10%; */
+   }
+ .margin-1 {
+     margin: 0;
+ }
+ * {
+     box-sizing: border-box;
+ }
+ #destination-name {
+    
+     font-size: 17px;
+     border: 1px solid lightblue;
+     width: 100%;
+     /* background: lightblue; */
+     background: linear-gradient(rgba(20, 20, 19, 0.5), rgba(9, 11, 11, 0.5));;
+     /* margin-top: 30%; */
+     border-radius: 15px;
+     padding: 10px;
+     color:white;
+     /* margin-left:5%; */
+ }
+ .explore {
+     border-radius: 10px;
+     background-color: #E84855;
+     border: none;
+     color: #FFFFFF;
+     text-align: center;
+     font-size: 20px;
+     /* padding: 10px; */
+     /* width: 150px; */
+     height: 50px;
+     /* padding-left: 40px;
+     padding-right: 40px; */
+     transition: all 0.5s;
+     /* cursor: pointer; */
+     /* margin: 10px; */
+     margin-top: 15px;
+     /* margin-left: 8%; */
+     background: linear-gradient(rgba(242, 175, 7, 0.5), rgba(14, 225, 240, 0.5));;  
+ }
+ /* articles */
+ h4,p,ul {
+ color: ivory;
+ }
+ b,em {
+     color:yellow;
+ }
+ .caro-picture {
+ /* margin-left: 10px;
+ margin-right: 10px; */
+ /* margin-left: 50px;
+ margin-right: 50px; */
+  background: linear-gradient(rgba(219, 20, 196, 0.5), rgba(0, 0, 0, 0.5));;
+ font-size: 14px;
+ }
+ /* carousel picture caption  */
+ .center-caption {
+      margin-left:400px;
+     text-align: right;
+     color: rgb(15, 12, 12);
+ }
+ .center-button {
+ background: firebrick; 
+ }
+ #whatever{
+     margin-top:100px;
+     margin-top:100px;
+ }
+ @media screen and (max-width: 768px){
+     #logo-img {
+         width: 60%;
+     }
+     .explore  {
+         /* padding: 200px; */ 
+         height: 70px;
+         
+     }
+ #destination-name {
+     margin-left: auto;
+     margin-right:  auto;
+    
+ }
+     /* code you put inside here 
+     will only work when the screen 
+     is smaller than 768px 
+     AKA - Phones and Tablets */
+ }
+ /* .card-deck {
+     border: 2px solid yellow;
+     border-radius: 5px;
+     background-color: white;
+ } */
+ .activity-title {
+     font-weight: bold;
+ }
+
+ .card-text {
+     color: black;
+ }
+=======
     text-align: center;
     font-size: 50px;
     background-position: bottom;
