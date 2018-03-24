@@ -99,6 +99,7 @@ padding-right: 0;
 }
 
 
+
 /* articles */
 h4,p,ul {
 color: ivory;
@@ -155,3 +156,14 @@ background: firebrick;
     AKA - Phones and Tablets */
 
 }
+
+/* .card-deck {
+    border: 2px solid yellow;
+    border-radius: 5px;
+    background-color: white;
+} */
+
+.activity-title {
+    font-weight: bold;
+}
+
