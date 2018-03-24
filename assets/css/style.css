@@ -106,3 +106,13 @@ form.example input[type=text] {
     /* margin-left: 8%; */
     background: linear-gradient(rgba(242, 175, 7, 0.5), rgba(14, 225, 240, 0.5));;  
 }
+
+/* .card-deck {
+    border: 2px solid yellow;
+    border-radius: 5px;
+    background-color: white;
+} */
+
+.activity-title {
+    font-weight: bold;
+}
