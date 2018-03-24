@@ -137,8 +137,8 @@ background: firebrick;
 }
 
 #whatever{
-    margin-top:100px;
-    margin-top:100px;
+    margin-top:70px;
+    margin-top:70px;
 }
 
 
@@ -175,3 +175,7 @@ background: firebrick;
     font-weight: bold;
 }
 
+
+.card-text {
+    color: black;
+}
