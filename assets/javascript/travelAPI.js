@@ -13,7 +13,7 @@ $(document).ready( function () {
     // If user inputs own destination, grab value and send to modal
     $("#user-trip").on("click", function() {
 
-        //console.log($("#destination-name").val());
+        console.log($("#destination-name").val());
         $("#user-destination").text( $("#destination-name").val() );
 
     });
@@ -79,3 +79,14 @@ $(document).ready( function () {
 // #start-date, id for start date in modal
 // #end-date, id for end date in modal
 // #activity-name, id for each activity, i.e. activity-nightlife, activity-shopping, etc
+
+
+
+var $galleryModal = $('.modal');
+
+$('.launch-gallery').click(function(){
+
+    $galleryModal.toggleClass('is-open');
+
+    return false;
+});

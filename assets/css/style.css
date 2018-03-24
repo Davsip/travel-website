@@ -45,6 +45,12 @@ padding-right: 0;
         width: 60%;
     }
 
+    
+
+
+
+
+    
     /* code you put inside here 
     will only work when the screen 
     is smaller than 768px 
@@ -105,4 +111,28 @@ form.example input[type=text] {
     margin-top: 15px;
     /* margin-left: 8%; */
     background: linear-gradient(rgba(242, 175, 7, 0.5), rgba(14, 225, 240, 0.5));;  
+}
+
+
+/* articles */
+h4,p,ul {
+color: ivory;
+}
+b,em {
+    color:yellow;
+}
+
+
+#first-picture {
+margin-left: 10px;
+margin-right: 10px;
+margin-left: auto;
+margin-right: auto;
+ background: linear-gradient(rgba(219, 20, 196, 0.5), rgba(0, 0, 0, 0.5));;
+font-size: 14px;
+
+}
+
+#margin-carousel{
+    padding-bottom: 20%;
 }
