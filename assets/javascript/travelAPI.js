@@ -38,7 +38,7 @@ $(document).ready(function () {
     // If user chooses predefined destination, grab value and send to modal
     $(".predefined-trip").on("click", function () {
 
-        $("#user-destination").text($(this).attr("value"));
+        $("#user-destination").text($(this).text());
 
     });
 
@@ -151,7 +151,7 @@ $(document).ready(function () {
                     var places = data.data.places;
                     console.log(places);
 
-                    //displayActivity(places);
+                    displayActivity(places);
                     pushFirebase(trip, places);
                 });
 
@@ -182,10 +182,11 @@ $(document).ready(function () {
         // have card-deck for first 5 activities
         // have card-deck for last 5 activities (start l @ index 5)
 
-        var numActivities = snapshot.val().places.length;
-        console.log(numActivities);
+        // console.log("--- Start Reference from Firebase ---");
+        // var numActivities = snapshot.val().places.length;
+        // console.log(numActivities);
+        // console.log("--- End Reference from Firebase ---");
 
-        snapshot.val().destination
 
         for (var k = 0; k < places.length; k++) {
 
@@ -203,10 +204,11 @@ $(document).ready(function () {
             cardBody.attr("class", "card-body");
 
             var activityTitle = $("<h5>");
-            activityTitle.attr("class", "activity-title");
+            activityTitle.attr("class", "card-title");
             activityTitle.text(places[k].name);
 
             var activityAbout = $("<p>");
+            activityAbout.attr("class","card-text");
             activityAbout.text(places[k].perex);
 
             cardBody.append(activityTitle);

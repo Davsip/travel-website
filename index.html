@@ -20,24 +20,27 @@
             <img src="./assets/images/logo.png" id="logo-img" alt="logo">
         </a>
     </div>
-    <!--------main div------------>
+    <!-- main div -->
     <div class="main page-1">
-        <!-- Search input -->
+
+
+        <!-- Search input  -->
         <div class="container">
-            <div class="col-md-6 col-lg-push-5 col-md-push-1 col-sm-push-1">
-                <div class="row">
-                    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
-                    <form>
-                        <input type="text" id="destination-name" placeholder="Search your destination...🔎" name="search" />
-                        <br>
+            <div id="whatever" class="col-xs-12">
+
+                <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+                <form>
+                    <input type="text" id="destination-name" placeholder="Search your destination...🔎" name="search" />
+                    <br>
+                    <div class="col-xs-12 text-center">
                         <button type="button" id="user-trip" class="btn btn-primary explore" data-toggle="modal" data-target="#exampleModalCenter">
                             Explore
                         </button>
-
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
+
         <!-- Modal -->
         <div class="col-lg-9 col-md-6 col-sm-6 col-xs-6 col-lg-push-5 col-md-push-1 col-sm-push-1">
             <!-- Explore -->
@@ -56,11 +59,9 @@
                         <div class="modal-body">
                             <form>
                                 From:
-                                <input type="date" id="start-date" name="from">
-                                <form>
-                                    to:
-                                    <input type="date" id="end-date" name="to">
-                                </form>
+                                <input type="date" id="start-date" name="from"> to:
+                                <input type="date" id="end-date" name="to">
+
                         </div>
                         <!-- calendar option  -->
                         <div class="modal-footer">
@@ -103,183 +104,174 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- predifined destinations -->
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <!----- carousel  -->
-        <div class="container page-1">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <!-- 1st picture slide  -->
-                            <div class="carousel-item active">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 caro-picture">
-                                            <p>
-                                                <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and
-                                                squares, and leading away from those squares are many lanes and alleyways
-                                                just waiting to be explored. The colours of the buildings are bright and
-                                                cheerful, and the little streets are endless. You may get lost, and if so,
-                                                just wander downhill and eventually you’ll come out in the center of town.
-                                                <br>
-                                                <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
-                                                sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem
-                                                numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
-                                                <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus
-                                                provident impedit similique ipsam, eius excepturi illo natus quis. Dolorem
-                                                adipisci eaque error sint est. ?
-                                                <br>
-                                                <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum
-                                                dolor sit amet consectetur adipisicing elit. Provident sint eligendi nihil
-                                                at rem numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit
-                                                ipsa
-                                                <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <img class="d-block w-100" src="./assets/images/guanajuato.jpg" class="predefined-trip" data-toggle="modal" data-target="#exampleModalCenter "
-                                                alt="First slide">
-                                            <div class="carousel-caption">
-                                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Guanajuato-Mexico</button>
-                                            </div>
+    <!-- predifined destinations -->
+    <!-- carousel  -->
+    <div class="container page-1">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- 1st picture slide  -->
+                        <div class="carousel-item active">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 caro-picture">
+                                        <p>
+                                            <b>Discover:</b>We soon fell for Guanajuato—its colours, graceful churches, shady
+                                            plazas, and lively atmosphere. It’s a compact, walkable city but the large student
+                                            population means there’s plenty going on with many cafes, bars, street food stalls,
+                                            markets, and art galleries.
+                                            <br>
+                                            <b>Eating:</b> It’s a compact, walkable city but the large student population means
+                                            there’s plenty going on with many cafes, bars, street food stalls, markets, and
+                                            art galleries.
+                                            <br> Guanajuato is a mountainous city, which provided much-needed exercise in between
+                                            meals. We walked through small alleyways, down busy streets and even took the
+                                            funicular (cable-car tram) up the hillside for spectacular vistas over the city.
+                                            But, the views weren’t the best part. At the top, we indulged in sopes, which
+                                            are typically made with a thick, corn tortilla as a base, and topped with cheese,
+                                            meat and salsas.
+                                            <br>
+                                            <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="d-block w-100 predefined-trip" src="./assets/images/guanajuato.jpg" data-toggle="modal" data-target="#exampleModalCenter "
+                                            alt="First slide">
+                                        <div class="carousel-caption">
+                                            <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Guanajuato, Mexico</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="carousel-item">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 caro-picture">
-                                            <p>
-                                                <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and
-                                                squares, and leading away from those squares are many lanes and alleyways
-                                                just waiting to be explored. The colours of the buildings are bright and
-                                                cheerful, and the little streets are endless. You may get lost, and if so,
-                                                just wander downhill and eventually you’ll come out in the center of town.
-                                                <br>
-                                                <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
-                                                sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem
-                                                numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
-                                                <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus
-                                                provident impedit similique ipsam, eius excepturi illo natus quis. Dolorem
-                                                adipisci eaque error sint est. ?
-                                                <br>
-                                                <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum
-                                                dolor sit amet consectetur adipisicing elit. Provident sint eligendi nihil
-                                                at rem numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit
-                                                ipsa
-                                                <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <img class="d-block w-100" src="./assets/images/syracuse-italy.jpg" class="predefined-trip" data-toggle="modal" data-target="#exampleModalCenter "
-                                                alt="Second slide">
-                                            <div class="carousel-caption">
-                                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Syracuse-Italy</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 caro-picture">
-                                            <p>
-                                                <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and
-                                                squares, and leading away from those squares are many lanes and alleyways
-                                                just waiting to be explored. The colours of the buildings are bright and
-                                                cheerful, and the little streets are endless. You may get lost, and if so,
-                                                just wander downhill and eventually you’ll come out in the center of town.
-                                                <br>
-                                                <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
-                                                sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem
-                                                numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
-                                                <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus
-                                                provident impedit similique ipsam, eius excepturi illo natus quis. Dolorem
-                                                adipisci eaque error sint est. ?
-                                                <br>
-                                                <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum
-                                                dolor sit amet consectetur adipisicing elit. Provident sint eligendi nihil
-                                                at rem numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit
-                                                ipsa
-                                                <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <img class="d-block w-100" src="/Users/davlio/Desktop/Code/travel-website/assets/images/perito-glacier.png" class="predefined-trip"
-                                                data-toggle="modal" data-target="#exampleModalCenter " alt="Third slide">
-                                            <div class="carousel-caption">
-                                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Calafate-Argentina</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 caro-picture">
-                                            <p>
-                                                <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and
-                                                squares, and leading away from those squares are many lanes and alleyways
-                                                just waiting to be explored. The colours of the buildings are bright and
-                                                cheerful, and the little streets are endless. You may get lost, and if so,
-                                                just wander downhill and eventually you’ll come out in the center of town.
-                                                <br>
-                                                <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
-                                                sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem
-                                                numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
-                                                <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus
-                                                provident impedit similique ipsam, eius excepturi illo natus quis. Dolorem
-                                                adipisci eaque error sint est. ?
-                                                <br>
-                                                <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum
-                                                dolor sit amet consectetur adipisicing elit. Provident sint eligendi nihil
-                                                at rem numquam, accusamus eos quo, vitae iure dolorum, ipsum inventore impedit
-                                                ipsa
-                                                <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <img class="d-block w-100" src="../assets/images/Barcelona-Spain.jpg" class="predefined-trip" data-toggle="modal" data-target="#exampleModalCenter "
-                                                alt="Fourth slide">
-                                            <div class="carousel-caption">
-                                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Barcelona-Spain</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous class</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
                         </div>
+
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 caro-picture">
+                                        <p>
+                                            <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and squares,
+                                            and leading away from those squares are many lanes and alleyways just waiting
+                                            to be explored. The colours of the buildings are bright and cheerful, and the
+                                            little streets are endless. You may get lost, and if so, just wander downhill
+                                            and eventually you’ll come out in the center of town.
+                                            <br>
+                                            <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus provident
+                                            impedit similique ipsam, eius excepturi illo natus quis. Dolorem adipisci eaque
+                                            error sint est. ?
+                                            <br>
+                                            <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="d-block w-100 predefined-trip" src="./assets/images/syracuse-italy.jpg" data-toggle="modal" data-target="#exampleModalCenter "
+                                            alt="Second slide">
+                                        <div class="carousel-caption">
+                                            <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Syracuse, Italy</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 caro-picture">
+                                        <p>
+                                            <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and squares,
+                                            and leading away from those squares are many lanes and alleyways just waiting
+                                            to be explored. The colours of the buildings are bright and cheerful, and the
+                                            little streets are endless. You may get lost, and if so, just wander downhill
+                                            and eventually you’ll come out in the center of town.
+                                            <br>
+                                            <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus provident
+                                            impedit similique ipsam, eius excepturi illo natus quis. Dolorem adipisci eaque
+                                            error sint est. ?
+                                            <br>
+                                            <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="d-block w-100 predefined-trip" src="/Users/davlio/Desktop/Code/travel-website/assets/images/perito-glacier.png"
+                                            data-toggle="modal" data-target="#exampleModalCenter " alt="Third slide">
+                                        <div class="carousel-caption">
+                                            <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Calafate, Argentina</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 caro-picture">
+                                        <p>
+                                            <b>Discover:</b>Guanajuato is a well designed city with plenty of plazas and squares,
+                                            and leading away from those squares are many lanes and alleyways just waiting
+                                            to be explored. The colours of the buildings are bright and cheerful, and the
+                                            little streets are endless. You may get lost, and if so, just wander downhill
+                                            and eventually you’ll come out in the center of town.
+                                            <br>
+                                            <b>Eating:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br> porro necessitatibus? Dolores, quisquam totam. Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Repellat nam earum repudiandae, quia ipsa temporibus provident
+                                            impedit similique ipsam, eius excepturi illo natus quis. Dolorem adipisci eaque
+                                            error sint est. ?
+                                            <br>
+                                            <b>Outdoors:</b>voluptatum voluptatem aliquid, veniam inventore Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Provident sint eligendi nihil at rem numquam,
+                                            accusamus eos quo, vitae iure dolorum, ipsum inventore impedit ipsa
+                                            <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="d-block w-100 predefined-trip" src="../assets/images/Barcelona-Spain.jpg" data-toggle="modal" data-target="#exampleModalCenter "
+                                            alt="Fourth slide">
+                                        <div class="carousel-caption">
+                                            <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Barcelona, Spain</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous class</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- mai div class -->
 
+    <!-- Page-2 Content, dynamically update after user clicks "Submit Trip" -->
     <div class="main" id="page-2">
 
         <div class="container">
@@ -295,18 +287,24 @@
 
 
 
-
-    <!-----java script -->
+    <!-- java script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script> 
+        crossorigin="anonymous"></script>
+
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+
     <script src="assets/javascript/travelAPI.js"></script>
     <!-- let's put this in javascritp file  -->
     <script>
