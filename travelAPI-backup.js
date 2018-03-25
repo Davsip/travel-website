@@ -150,6 +150,7 @@ $(document).ready(function () {
                     var places = data.data.places;
                     console.log(places);
 
+                    displayActivity(trip, places);
                     pushFirebase(trip, places);
                 });
 
@@ -158,25 +159,14 @@ $(document).ready(function () {
     };
 
     // Dynamically update page-2 with API Search Results
-    function displayActivity( key ) {
-
-        // Get reference to this user's trip from Firebase
-        var trip = database.ref().child(key);
-
-        var userTrip;
-
-        trip.on("value", function(snapshot) {
-            userTrip = snapshot.val();
-        });
-
-        console.log(userTrip);
+    function displayActivity(trip, places) {
 
         // Show all content on page-2
         $("#page-2").show();
 
-        $("#destination").text(userTrip.myTrip.destination);
-        $("#date-start").text(userTrip.myTrip.startDate);
-        $("#date-end").text(userTrip.myTrip.endDate);
+        $("#destination").text(trip.destination);
+        $("#date-start").text(trip.startDate);
+        $("#date-end").text(trip.endDate);
 
         console.log("--- displayActivity Called ---")
 
@@ -187,21 +177,21 @@ $(document).ready(function () {
         // For loop to dynamically update activities from API search results
         // Each card deck contains 4 activity cards
         // Would need to be adjusted if more than 12 activities returned
-        for (var k = 0; k < userTrip.places.length; k++) {
+        for (var k = 0; k < places.length; k++) {
 
-            console.log("Activity + " + k + ": " + userTrip.places[k]);
+            console.log("Activity + " + k + ": " + places[k]);
 
             var eachActivity = $("<div class='card'>");
 
-            var imageActivity = $("<img class='card-img-top' src=" + userTrip.places[k].thumbnail_url + " alt=" + userTrip.places[k].name + ">");
+            var imageActivity = $("<img class='card-img-top' src=" + places[k].thumbnail_url + " alt=" + places[k].name + ">");
 
             var cardBody = $("<div class='card-body'>");
 
             var activityTitle = $("<h5 class='card-title'>");
-            activityTitle.text(userTrip.places[k].name);
+            activityTitle.text(places[k].name);
 
             var activityAbout = $("<p class='card-text'>");
-            activityAbout.text(userTrip.places[k].perex);
+            activityAbout.text(places[k].perex);
 
             cardBody.append(activityTitle);
             cardBody.append(activityAbout);
@@ -209,9 +199,9 @@ $(document).ready(function () {
             eachActivity.append(imageActivity);
             eachActivity.append(cardBody);
 
-            if (k < 4) {
+            if ( k < 4 ) {
                 cardDeckOne.append(eachActivity);
-            } else if (k < 8) {
+            } else if ( k < 8 ) {
                 cardDeckTwo.append(eachActivity);
             } else {
                 cardDeckThree.append(eachActivity);
@@ -225,6 +215,20 @@ $(document).ready(function () {
 
     };
 
+    // Event Listener for Child Added to Firebase Database
+    database.ref("/user-trip").on("child_added", function (snapshot, prevChildKey) {
+        //console.log(snapshot.val());
+        userKey = snapshot.key;
+        console.log("---------");
+        console.log(userKey);
+        console.log("---------");
+
+    }, function (errorObject) {
+
+        // In case of error this will print the error
+        console.log("The read failed: " + errorObject.code);
+    });
+
     // Push initial user trip information and API search results to Firebase Database
     function pushFirebase(myTrip, places) {
 
@@ -236,12 +240,13 @@ $(document).ready(function () {
             places
         }
 
-        var newEntry = database.ref().push(myTrip2);
-        userKey = newEntry.key;
-        console.log(userKey);
-        console.log(newEntry);
-        displayActivity(userKey);
+        $("#user-destination").val("");
+        $("#start-date").val("");
+        $("#end-date").val("");
+
+        database.ref("/user-trip").push(myTrip2);
 
     };
 
 });
+

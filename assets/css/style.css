@@ -93,7 +93,7 @@ body {
  margin-right: 10px; */
  /* margin-left: 50px;
  margin-right: 50px; */
-  background: linear-gradient(rgba(219, 20, 196, 0.5), rgba(0, 0, 0, 0.5));;
+  background: linear-gradient(rgba(219, 20, 196, 0.5), rgba(0, 0, 0, 0.5));
  font-size: 14px;
  }
  /* carousel picture caption  */
@@ -139,4 +139,70 @@ body {
 
  .card-text {
      color: black;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Jason CSS to Fix Modal Footer */
+ .card-deck {
+     margin-bottom: 30px;
  }

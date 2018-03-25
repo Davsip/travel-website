@@ -16,7 +16,7 @@
 
 <body>
     <div class="navbar">
-        <a href="#home">
+        <a href="index.html">
             <img src="./assets/images/logo.png" id="logo-img" alt="logo">
         </a>
     </div>
@@ -57,43 +57,51 @@
                         </div>
                         <!-- calendar option  -->
                         <div class="modal-body">
-                            <form>
-                                From:
-                                <input type="date" id="start-date" name="from"> to:
-                                <input type="date" id="end-date" name="to">
-
+                            From:
+                            <input type="date" id="start-date" name="from"> to:
+                            <input type="date" id="end-date" name="to">
                         </div>
                         <!-- calendar option  -->
-                        <div class="modal-footer">
-                            <div class=" container">
-                                <div class="col-sm-4">
+                        <div class="modal-body">
+                            <div class="row">
+                                <!-- activities column 1 -->
+                                <div class="col">
                                     <form>
+                                        <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="activity-discovering" value="discovering">Discovering
                                         </label>
+                                        </div>
+                                        <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="activity-eating" value="eating">Eating
                                         </label>
+                                        </div>
+                                        <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="activity-going_out" value="going_out">Going Out
                                         </label>
+                                        </div>
                                     </form>
                                 </div>
-                            </div>
-                            <br>
-                            <!-- activities container 2  -->
-                            <div class=" container">
-                                <div class="col-sm-4">
+                                <!-- activities columns 2  -->
+                                <div class="col">
                                     <form>
+                                        <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="activity-relaxing" value="relaxing">Relaxing
                                         </label>
+                                        </div>
+                                        <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="activity-shopping" value="shopping">Shopping
                                         </label>
+                                        </div>
+                                        <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="activity-sightseeing" value="sightseeing">Sightseeing
                                         </label>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -275,17 +283,24 @@
     <div class="main" id="page-2">
 
         <div class="container">
-            <div class="card-deck">
+            <div class="jumbotron">
+                <h1 class="display-4 page-2-jumbotron">Welcome to
+                    <span id="destination"></span>
+                </h1>
+                <p class="lead">Suggested activities for your trip on
+                    <span id="date-start"></span> to
+                    <span id="date-end"></span>
+                </p>
+                <hr class="my-4">
 
+                <div class="card-deck-container">
+                </div>
                 <!-- User Select Activity Results From API SEARCH -->
 
             </div>
         </div>
 
-        <!-- mai div class -->
     </div>
-
-
 
     <!-- java script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -306,15 +321,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
 
     <script src="assets/javascript/travelAPI.js"></script>
-    <!-- let's put this in javascritp file  -->
-    <script>
-        var input = document.getElementById('destination-name');
-        var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
-        google.maps.event.addListener(autocomplete, 'place_changed', function () {
-            var place = autocomplete.getPlace();
-        })
-    </script>
-    <!-- let's put this in javascritp file  -->
+
 </body>
 
 </html>
