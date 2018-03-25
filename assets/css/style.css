@@ -1,8 +1,6 @@
 body {
    background-image: url(../images/background-city.jpg);
-   /* background: #E0DFD5; */
    margin: 0;
-   /* max-width: 90%; */
    height: auto;
    position: relative;   
    background-repeat: no-repeat;
@@ -11,15 +9,9 @@ body {
    background-size: cover;
 padding-left:0; 
 padding-right: 0;
-      
- 
-   
 }
-
+/* navegation bar */
 .navbar {
-    /* overflow: hidden; */
-    /* position: fixed; */
-    /* top: 0; */
     width: 100%;
     height: auto;
     background-size: cover;
@@ -49,6 +41,7 @@ padding-right: 0;
     margin-top: 5px;
     /* height: 700px;  to enable scrolling */
     margin-bottom: 50px;
+
     /* padding-right: 10%;
     padding-left: 10%; */
 
@@ -65,18 +58,16 @@ padding-right: 0;
     box-sizing: border-box;
 }
 
+
 #destination-name {
    
     font-size: 17px;
     border: 1px solid lightblue;
     width: 100%;
-    /* background: lightblue; */
     background: linear-gradient(rgba(20, 20, 19, 0.5), rgba(9, 11, 11, 0.5));;
-    /* margin-top: 30%; */
     border-radius: 15px;
     padding: 10px;
     color:white;
-    /* margin-left:5%; */
 }
 
 .explore {
@@ -97,7 +88,7 @@ padding-right: 0;
     /* margin: 10px; */
     margin-top: 15px;
     /* margin-left: 8%; */
-    background: linear-gradient(rgba(242, 175, 7, 0.5), rgba(14, 225, 240, 0.5));;  
+    background: linear-gradient(rgba(9, 8, 9, 0.5), rgba(240, 14, 191, 0.5));;  
 }
 
 
@@ -116,7 +107,7 @@ b,em {
 margin-right: 10px; */
 /* margin-left: 50px;
 margin-right: 50px; */
- background: linear-gradient(rgba(219, 20, 196, 0.5), rgba(0, 0, 0, 0.5));;
+ background: linear-gradient(rgba(219, 20, 196, 0.5), rgba(0, 0, 0, 0.5));
 font-size: 14px;
 
 }
