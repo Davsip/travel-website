@@ -13,6 +13,14 @@ body {
      padding-right: 0;
 }
 
+.card-deck {
+   margin-bottom: 30px;
+}
+
+.card-text, .card-title, .lead {
+    color: black;
+}
+
  .navbar {
      /* overflow: hidden; */
      /* position: fixed; */
@@ -135,74 +143,4 @@ body {
  } */
  .activity-title {
      font-weight: bold;
- }
-
- .card-text {
-     color: black;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /* Jason CSS to Fix Modal Footer */
- .card-deck {
-     margin-bottom: 30px;
  }

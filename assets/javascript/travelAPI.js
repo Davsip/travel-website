@@ -150,7 +150,14 @@ $(document).ready(function () {
                     var places = data.data.places;
                     console.log(places);
 
-                    pushFirebase(trip, places);
+                    if (places.length === 0) {
+                        // modal to alert user that no activities returned
+                        // then return to page-1 and hide page-2
+
+                    } else {
+                        pushFirebase(trip, places);
+                    };
+
                 });
 
         };
