@@ -12,7 +12,6 @@ $(document).ready(function () {
         storageBucket: "",
         messagingSenderId: "560299774902"
     };
-
     firebase.initializeApp(config);
 
     var database = firebase.database();
@@ -20,10 +19,10 @@ $(document).ready(function () {
 
     // Google Maps API - Autocomplete by Cities for Destination Search 
     var input = document.getElementById('destination-name');
+
     var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
 
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
-
         var place = autocomplete.getPlace();
     });
 
@@ -34,21 +33,16 @@ $(document).ready(function () {
     // If user inputs own destination, grab value and send to modal
     $("#user-trip").on("click", function () {
 
-        // Prevent user from exploring if no destination entered
-        if ( $("#destination-name").val() === "") {
+        console.log($("#destination-name").val());
+        $("#user-destination").text($("#destination-name").val());
 
-            $("#no-results").modal("hide");    
-            return false;
-        } else {
-
-            $("#user-destination").text($("#destination-name").val());
-        };
     });
 
     // If user chooses predefined destination, grab value and send to modal
     $(".predefined-trip").on("click", function () {
 
         $("#user-destination").text($(this).text());
+
     });
 
     // On click event listener for Submit Trip
@@ -56,6 +50,8 @@ $(document).ready(function () {
 
         // Hide all content on page-1
         $(".page-1").hide();
+
+        console.log($("#user-destination").text());
 
         // Store user inputs
         var myTrip = {
@@ -71,22 +67,21 @@ $(document).ready(function () {
         $("#end-date").val("");
         $("#destination-name").val("");
 
+        console.log(possActivities.length);
+
         // For loop to store user checked activities
         for (var i = 0; i < possActivities.length; i++) {
-
+            console.log("check: activity-" + possActivities[i]);
             if ($("#activity-" + possActivities[i])[0].checked) {
-
+                console.log(true);
                 myTrip.myActivities.push(possActivities[i]);
-            };
-        };
-
-        // Clear checkboxes after storing checked activities
-        $("input[type=checkbox]").each(function () {
-            this.checked = false;
-        });
+            }
+        }
 
         // pass myTrip to searchAPI, then to Firebase
+        console.log(myTrip);
         searchAPI(myTrip);
+
     });
 
     // Sygic Travel API Search
@@ -94,6 +89,8 @@ $(document).ready(function () {
 
         var city = trip.destination.substring(0, trip.destination.indexOf(","));
         var cityID = "";
+
+        //console.log(city);
 
         var apiKey = "VUoBrIiIld3xOuvna78BQ2JWCOS3Ndu32EcjtGzp";
         var url = "https://api.sygictravelapi.com/1.0/en/places/list?query=" + city;
@@ -108,7 +105,9 @@ $(document).ready(function () {
             .done(function (data) {
 
                 var places = data.data.places;
+                console.log(places);
                 cityID = places[0].id;
+                console.log(cityID);
 
                 activitySearch();
             });
@@ -119,22 +118,27 @@ $(document).ready(function () {
             url = "https://api.sygictravelapi.com/1.0/en/places/list?parents=" + cityID + "&categories=";
             var categories = "";
 
-            // Build categories portion of url based on number of activities returned from Sygic Travel API search
             if (trip.myActivities.length > 1) {
 
+                console.log("--- More than 1 activity chosen ---");
+
                 for (var j = 0; j < trip.myActivities.length - 1; j++) {
-                    categories = categories + trip.myActivities[j] + "%7C"; 
+                    categories = categories + trip.myActivities[j] + ",";
+                    console.log(categories);
                 }
 
                 categories = categories + trip.myActivities[trip.myActivities.length - 1];
+                console.log(categories);
 
             } else {
+                console.log("--- Only 1 activity chosen ---");
                 categories = trip.myActivities[0];
+                console.log(categories);
             }
 
             url = url + categories + "&limit=12";
+            console.log(url);
 
-            // Sygic Travel API search to retrieve possible activity results
             $.ajax({
                 headers: {
                     'x-api-key': apiKey
@@ -142,39 +146,29 @@ $(document).ready(function () {
                 url: url
             })
                 .done(function (data) {
+                    //console.log(url);
                     var places = data.data.places;
+                    console.log(places);
 
-                    // Display modal to alert user that no activities returned, else keep moving on
-                    if (places.length === 0) {
-
-                        $("#no-results").modal("show");
-                        $("#page-2").hide();
-                        $(".page-1").show();
-
-                    } else {
-                        pushFirebase(trip, places);
-                    };
+                    displayActivity(trip, places);
+                    pushFirebase(trip, places);
                 });
+
         };
+
     };
 
     // Dynamically update page-2 with API Search Results
-    function displayActivity(key) {
-
-        // Get reference to this user's trip from Firebase
-        var trip = database.ref().child(key);
-        var userTrip;
-
-        trip.on("value", function (snapshot) {
-            userTrip = snapshot.val();
-        });
+    function displayActivity(trip, places) {
 
         // Show all content on page-2
         $("#page-2").show();
 
-        $("#destination").text(userTrip.myTrip.destination);
-        $("#date-start").text(userTrip.myTrip.startDate);
-        $("#date-end").text(userTrip.myTrip.endDate);
+        $("#destination").text(trip.destination);
+        $("#date-start").text(trip.startDate);
+        $("#date-end").text(trip.endDate);
+
+        console.log("--- displayActivity Called ---")
 
         var cardDeckOne = $("<div class='card-deck'>");
         var cardDeckTwo = $("<div class='card-deck'>");
@@ -182,27 +176,22 @@ $(document).ready(function () {
 
         // For loop to dynamically update activities from API search results
         // Each card deck contains 4 activity cards
-        // Would need to be adjusted if allow more than 12 activities to be returned
-        for (var k = 0; k < userTrip.places.length; k++) {
+        // Would need to be adjusted if more than 12 activities returned
+        for (var k = 0; k < places.length; k++) {
+
+            console.log("Activity + " + k + ": " + places[k]);
 
             var eachActivity = $("<div class='card'>");
 
-            var activityImage = userTrip.places[k].thumbnail_url;
-
-            // Display default image if Sygic Travel API does not return thumbnail_url, otherwise display thumbnail_url
-            if (activityImage === undefined) {
-                var imageActivity = $("<img class='card-img-top' src='./assets/images/default-no-image.png' alt='Default Image'>");
-            } else {
-                var imageActivity = $("<img class='card-img-top' src=" + userTrip.places[k].thumbnail_url + " alt=" + userTrip.places[k].name + ">");
-            };
+            var imageActivity = $("<img class='card-img-top' src=" + places[k].thumbnail_url + " alt=" + places[k].name + ">");
 
             var cardBody = $("<div class='card-body'>");
 
             var activityTitle = $("<h5 class='card-title'>");
-            activityTitle.text(userTrip.places[k].name);
+            activityTitle.text(places[k].name);
 
             var activityAbout = $("<p class='card-text'>");
-            activityAbout.text(userTrip.places[k].perex);
+            activityAbout.text(places[k].perex);
 
             cardBody.append(activityTitle);
             cardBody.append(activityAbout);
@@ -210,9 +199,9 @@ $(document).ready(function () {
             eachActivity.append(imageActivity);
             eachActivity.append(cardBody);
 
-            if (k < 4) {
+            if ( k < 4 ) {
                 cardDeckOne.append(eachActivity);
-            } else if (k < 8) {
+            } else if ( k < 8 ) {
                 cardDeckTwo.append(eachActivity);
             } else {
                 cardDeckThree.append(eachActivity);
@@ -223,19 +212,41 @@ $(document).ready(function () {
         $(".card-deck-container").append(cardDeckOne);
         $(".card-deck-container").append(cardDeckTwo);
         $(".card-deck-container").append(cardDeckThree);
+
     };
 
-    // Push user trip information and API search results to Firebase Database
+    // Event Listener for Child Added to Firebase Database
+    database.ref("/user-trip").on("child_added", function (snapshot, prevChildKey) {
+        //console.log(snapshot.val());
+        userKey = snapshot.key;
+        console.log("---------");
+        console.log(userKey);
+        console.log("---------");
+
+    }, function (errorObject) {
+
+        // In case of error this will print the error
+        console.log("The read failed: " + errorObject.code);
+    });
+
+    // Push initial user trip information and API search results to Firebase Database
     function pushFirebase(myTrip, places) {
+
+        console.log(myTrip);
+        console.log(places);
 
         var myTrip2 = {
             myTrip,
             places
         }
 
-        var newEntry = database.ref().push(myTrip2);
-        userKey = newEntry.key;
-        displayActivity(userKey);
+        $("#user-destination").val("");
+        $("#start-date").val("");
+        $("#end-date").val("");
+
+        database.ref("/user-trip").push(myTrip2);
+
     };
 
 });
+
