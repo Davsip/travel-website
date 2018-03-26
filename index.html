@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-site-verification" content="-3ZDYoFr0iPxHAzEVslbj5RM_l2LVXb0oTPhxQpPJ4k" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
@@ -309,7 +310,7 @@
                 </div>
                 <div class="modal-footer">
                     <!-- <a href="index.html"> -->
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Return</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Return</button>
                     <!-- </a> -->
                 </div>
             </div>
@@ -332,7 +333,18 @@
         crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwX_tgk_onxSTk6sFY4QGEli8hrqbwZ2E&libraries=places&language=en"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC79k82o2yF9yjxqxunvHpa2s2-WGEjLpQ&libraries=places"></script>
+
+    <script>
+        // Google Maps API - Autocomplete by Cities for Destination Search 
+        var input = document.getElementById('destination-name');
+        var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+
+            var place = autocomplete.getPlace();
+        });
+    </script>
 
     <script src="assets/javascript/travelAPI.js"></script>
 
