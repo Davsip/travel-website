@@ -140,7 +140,13 @@ background: firebrick;
     }
     .explore  {
         /* padding: 200px; */ 
-        height: 70px;
+        height: 70px; 
+
+        
+
+
+
+
         
     }
 
@@ -169,4 +175,9 @@ background: firebrick;
 
 .card-text {
     color: black;
+
+}
+
+.card-deck {
+    margin-bottom: 30px;
 }

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Search my trip🔎</title>
@@ -40,70 +41,78 @@
                 </form>
             </div>
         </div>
+<!-- Modal -->
+<div class="col-lg-9 col-md-6 col-sm-6 col-xs-6 col-lg-push-5 col-md-push-1 col-sm-push-1">
+        <!-- Explore -->
 
         <!-- Modal -->
-        <div class="col-lg-9 col-md-6 col-sm-6 col-xs-6 col-lg-push-5 col-md-push-1 col-sm-push-1">
-            <!-- Explore -->
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content ">
-                        <div class="modal-header">
-                            <h3 class="modal-title" id="user-destination"></h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- calendar option  -->
-                        <div class="modal-body">
-                            <form>
-                                From:
-                                <input type="date" id="start-date" name="from"> to:
-                                <input type="date" id="end-date" name="to">
-
-                        </div>
-                        <!-- calendar option  -->
-                        <div class="modal-footer">
-                            <div class=" container">
-                                <div class="col-sm-4">
-                                    <form>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="activity-discovering" value="discovering">Discovering
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="activity-eating" value="eating">Eating
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="activity-going_out" value="going_out">Going Out
-                                        </label>
-                                    </form>
-                                </div>
-                            </div>
-                            <br>
-                            <!-- activities container 2  -->
-                            <div class=" container">
-                                <div class="col-sm-4">
-                                    <form>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="activity-relaxing" value="relaxing">Relaxing
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="activity-shopping" value="shopping">Shopping
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="activity-sightseeing" value="sightseeing">Sightseeing
-                                        </label>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="submit-trip" data-dismiss="modal">Save changes</button>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="user-destination"></h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <!-- calendar option  -->
+                    <div class="modal-body">
+                        From:
+                        <input type="date" id="start-date" name="from"> to:
+                        <input type="date" id="end-date" name="to">
+                    </div>
+                    <!-- calendar option  -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- activities column 1 -->
+                            <div class="col">
+                                <form>
+                                    <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="activity-discovering" value="discovering">Discovering
+                                    </label>
+                                    </div>
+                                    <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="activity-eating" value="eating">Eating
+                                    </label>
+                                    </div>
+                                    <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="activity-going_out" value="going_out">Going Out
+                                    </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- activities columns 2  -->
+                            <div class="col">
+                                <form>
+                                    <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="activity-relaxing" value="relaxing">Relaxing
+                                    </label>
+                                    </div>
+                                    <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="activity-shopping" value="shopping">Shopping
+                                    </label>
+                                    </div>
+                                    <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="activity-sightseeing" value="sightseeing">Sightseeing
+                                    </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submit-trip" data-dismiss="modal">Save changes</button>
                 </div>
             </div>
         </div>
+    </div>
+ 
     </div>
 
     <!-- predifined destinations -->
@@ -120,18 +129,22 @@
                                     <div class="col-md-6 caro-picture">
                                         <p>
                                             <b>Discover:</b>
-                                            The city of Guanajuato is known for its colonial architecture, tunnels, alleys and colorful houses in the hills. 
-                                            Guanajuato is ideal for tourists who enjoy sightseeing, it is possible to walk
-                                             the narrow streets and travel through time to colonial times. 
+                                            The city of Guanajuato is known for its colonial architecture, tunnels, alleys and colorful houses in the hills. Guanajuato
+                                            is ideal for tourists who enjoy sightseeing, it is possible to walk the narrow
+                                            streets and travel through time to colonial times.
                                             <br>
-                                            <b>Eating:</b> Guanajuato is definitely the most representative city of
-                                            Mexican gastronomy. From food stalls in the San Miguel market, gastronomic festivals 
-                                            through the year, to gourmet restaurants with the most internationally recognized Mexican chefs.
+                                            <b>Eating:</b> Guanajuato is definitely the most representative city of Mexican
+                                            gastronomy. From food stalls in the San Miguel market, gastronomic festivals
+                                            through the year, to gourmet restaurants with the most internationally recognized
+                                            Mexican chefs.
                                             <br>
-                                            <b>Outdoors:</b>Walking in the narrow streets of Gto, having in my mind, "where i can find a mountain bike activity?",
-                                           (after my second visit in the city, the same year). I found a small coffee shop, i've heard the barista talking about  customizing
-                                            his mountain bike, and i asked him, where i can find a  mtb tour guide? (whithout searching google),and he directed me to other 
-                                            coffee place that had bikes to rent, finally went to an amazing tour to the mountain starting in small town called Santa Rosa.
+                                            <b>Outdoors:</b>Walking in the narrow streets of Gto, having in my mind, "where
+                                            i can find a mountain bike activity?", (after my second visit in the city, the
+                                            same year). I found a small coffee shop, i've heard the barista talking about
+                                            customizing his mountain bike, and i asked him, where i can find a mtb tour guide?
+                                            (whithout searching google),and he directed me to other coffee place that had
+                                            bikes to rent, finally went to an amazing tour to the mountain starting in small
+                                            town called Santa Rosa.
                                     </div>
                                     <div class="col-md-6">
                                         <img class="d-block w-100 predefined-trip" src="./assets/images/guanajuato.jpg" data-toggle="modal" data-target="#exampleModalCenter "
@@ -149,26 +162,21 @@
                                 <div class="row">
                                     <div class="col-md-6 caro-picture">
                                         <p>
-                                            <b>Discover:</b>The Greek theatre
-                                            Impressive, solemn, intriguing, with stunning views
-                                            It may happen that, while sitting on the big stone steps ,
-                                             you hear the voices of the great Greek heroes, Agamemnon, 
-                                            Medea or Oedipus,  even if there are no actors on 
-                                            the stage …this is such an evocative place! 
-                                            It keeps evidences of several historic periods, 
-                                            from the prehistoric ages to Late Antiquity and 
+                                            <b>Discover:</b>The Greek theatre Impressive, solemn, intriguing, with stunning
+                                            views It may happen that, while sitting on the big stone steps , you hear the
+                                            voices of the great Greek heroes, Agamemnon, Medea or Oedipus, even if there
+                                            are no actors on the stage …this is such an evocative place! It keeps evidences
+                                            of several historic periods, from the prehistoric ages to Late Antiquity and
                                             the Byzantine era.
                                             <br>
-                                            <b>Eating:</b>At the entrance of Ortygia island, that 
-                                            is connected to the city by Umbertino bridge, you will 
-                                            be greeted by the aroma every kinds of spices, chilli 
-                                            peppers from Etna, almond cakes, as well as seafood and
-                                             fresh fish. A small market enlivened by colourful “vanniate”, 
-                                             catchy phrases in Sicilian dialect.
+                                            <b>Eating:</b>At the entrance of Ortygia island, that is connected to the city by
+                                            Umbertino bridge, you will be greeted by the aroma every kinds of spices, chilli
+                                            peppers from Etna, almond cakes, as well as seafood and fresh fish. A small market
+                                            enlivened by colourful “vanniate”, catchy phrases in Sicilian dialect.
                                             <br>
-                                            <b>Sightseeing:</b>If you like castles, you are in the right
-                                             place: these are among the most picturesque castles of the Island.
-                                             Maniace Castle is named after  the  Byzantine Commander Giorgio Maniace
+                                            <b>Sightseeing:</b>If you like castles, you are in the right place: these are among
+                                            the most picturesque castles of the Island. Maniace Castle is named after the
+                                            Byzantine Commander Giorgio Maniace
                                         </p>
                                     </div>
                                     <div class="col-md-6">
@@ -186,31 +194,30 @@
                                 <div class="row">
                                     <div class="col-md-6 caro-picture">
                                         <p>
-                                            <b>Discover:</b>Perito Moreno Glaciar is one of the main tourist attractions 
-                                            throughout all of Argentina, Perito Moreno Glacier is a place filled with 
-                                            natural beauty and wonder at nearly every glancing turn. The ice formation covers 
-                                            over 250 square km (97 square miles.) The height of the ice is 74 mts(240 ft).
+                                            <b>Discover:</b>Perito Moreno Glaciar is one of the main tourist attractions throughout
+                                            all of Argentina, Perito Moreno Glacier is a place filled with natural beauty
+                                            and wonder at nearly every glancing turn. The ice formation covers over 250 square
+                                            km (97 square miles.) The height of the ice is 74 mts(240 ft).
                                             <br>
-                                            <b>Eating:</b>Cordero Patagonico (Patagonia Lamb bbq)
-                                            The lamb is a meat used to make bbq in Argentina, but there is a region where
-                                             it is the favorite: The south (more specifically in Santa Cruz and Chubut). 
-                                             This is because it is there where the best breeding of lambs occurs, 
-                                            thanks to the fact that the climate in that place is dry, and it rains
-                                             just and necessary.
-                                             <br>
-                                             <b>Outdoors:</b>
-                                             Trekking on Ice,The Big Ice Perito Moreno glacier trekking tour is the ultimate 
-                                             adventure tour of the famous glacier near El Calafate, Argentina. A unique full 
-                                             day trekking experience . Enjoy spectacular views of the breathtaking ice 
-                                             formations in Argentina’s Los Glaciares National Park.
-                                             With its mesmerizing blue lagoons, deep cracks and stunning caves,you won’t
-                                             believe your eyes as you trek and hike through this dream-like landscape .
-                              
-                                             </p>
+                                            <b>Eating:</b>Cordero Patagonico (Patagonia Lamb bbq) The lamb is a meat used to
+                                            make bbq in Argentina, but there is a region where it is the favorite: The south
+                                            (more specifically in Santa Cruz and Chubut). This is because it is there where
+                                            the best breeding of lambs occurs, thanks to the fact that the climate in that
+                                            place is dry, and it rains just and necessary.
+                                            <br>
+                                            <b>Outdoors:</b>
+                                            Trekking on Ice,The Big Ice Perito Moreno glacier trekking tour is the ultimate adventure tour of the famous glacier near
+                                            El Calafate, Argentina. A unique full day trekking experience . Enjoy spectacular
+                                            views of the breathtaking ice formations in Argentina’s Los Glaciares National
+                                            Park.   With its mesmerizing blue lagoons, deep cracks and stunning caves,you
+                                            won’t believe your eyes as you trek and hike through this dream-like landscape
+                                            .
+
+                                        </p>
                                     </div>
                                     <div class="col-md-6">
-                                        <img class="d-block w-100 predefined-trip" src="./assets/images/perito-glacier.png"
-                                            data-toggle="modal" data-target="#exampleModalCenter " alt="Third slide">
+                                        <img class="d-block w-100 predefined-trip" src="./assets/images/perito-glacier.png" data-toggle="modal" data-target="#exampleModalCenter "
+                                            alt="Third slide">
                                         <div class="carousel-caption">
                                             <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary explore predefined-trip">Calafate, Argentina</button>
                                         </div>
@@ -223,24 +230,22 @@
                                 <div class="row">
                                     <div class="col-md-6 caro-picture">
                                         <p>
-                                            <b>Eating:</b>Fill up on tapas, pintxos and vermouth
-                                            Pintxos, in essence, are Basque tapas - plates of bite-sized 
-                                            goodies served atop a piece of bread - and they're also a culinary 
-                                            trend in Barcelona. Tradition calls for you to pick at the food with 
-                                            toothpicks.You can get stuck in to ham empanadillas (a type of pie).
+                                            <b>Eating:</b>Fill up on tapas, pintxos and vermouth Pintxos, in essence, are Basque
+                                            tapas - plates of bite-sized goodies served atop a piece of bread - and they're
+                                            also a culinary trend in Barcelona. Tradition calls for you to pick at the food
+                                            with toothpicks.You can get stuck in to ham empanadillas (a type of pie).
                                             <br>
-                                            <b>Discover:</b>Barcelona's most famous street is both a tourist 
-                                            magnet and a window into Catalan culture, with cultural centers,
-                                            theaters and intriguing architecture. Flanked by plane trees, 
-                                            the middle section of La Rambla is a broad pedestrian boulevard, 
-                                            crowded every day until the wee hours with a wide cross-section of society. 
+                                            <b>Discover:</b>Barcelona's most famous street is both a tourist magnet and a window
+                                            into Catalan culture, with cultural centers, theaters and intriguing architecture.
+                                            Flanked by plane trees, the middle section of La Rambla is a broad pedestrian
+                                            boulevard, crowded every day until the wee hours with a wide cross-section of
+                                            society.
                                             <br>
-                                            <b>Sightseeing:</b>Picasso Museum. In the Born area. The Picasso Museum is 
-                                            Barcelona's most famous museum. Pablo Picasso was born in Malaga in the
-                                             south of Spain, but the Picasso family moved to Barcelona in 1895 and 
-                                             Picasso lived here until 1904. Picasso's father was an art teacher and 
-                                             although as a child Pablo Picasso already studied art in Malaga, it was 
-                                             in Barcelona that he spent his formative years.
+                                            <b>Sightseeing:</b>Picasso Museum. In the Born area. The Picasso Museum is Barcelona's
+                                            most famous museum. Pablo Picasso was born in Malaga in the south of Spain, but
+                                            the Picasso family moved to Barcelona in 1895 and Picasso lived here until 1904.
+                                            Picasso's father was an art teacher and although as a child Pablo Picasso already
+                                            studied art in Malaga, it was in Barcelona that he spent his formative years.
                                             <br>
                                         </p>
                                     </div>
@@ -254,6 +259,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- carousel settings -->
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous class</span>
@@ -268,21 +275,31 @@
         </div>
     </div>
 
-
     <!-- Page-2 Content, dynamically update after user clicks "Submit Trip" -->
     <div class="main" id="page-2">
 
         <div class="container">
-            <div class="card-deck">
+            <div class="jumbotron">
+                <h1 class="display-4 page-2-jumbotron">Welcome to
+                    <span id="destination"></span>
+                </h1>
+                <p class="lead">Suggested activities for your trip on
+                    <span id="date-start"></span> to
+                    <span id="date-end"></span>
+                </p>
+                <hr class="my-4">
 
+                <div class="card-deck">
+                </div>
                 <!-- User Select Activity Results From API SEARCH -->
 
             </div>
         </div>
 
-        <!-- mai div class -->
     </div>
 
+
+    <!-- main div  -->
 
 
     <!-- java script -->
@@ -304,15 +321,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
 
     <script src="assets/javascript/travelAPI.js"></script>
-    <!-- let's put this in javascritp file  -->
-    <script>
-        var input = document.getElementById('destination-name');
-        var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
-        google.maps.event.addListener(autocomplete, 'place_changed', function () {
-            var place = autocomplete.getPlace();
-        })
-    </script>
-    <!-- let's put this in javascritp file  -->
+
 </body>
 
 </html>
